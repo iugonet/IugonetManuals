@@ -28,14 +28,18 @@
       <arg line="0"/>
     </exec>
     <exec executable="yum">
-      <arg line="-y install tetex*"/>
+      <arg line="-y install tetex* gcc kpathsea-devel"/>
     </exec>
   </target>
 
   <target name="dvipdfmx" description="Install dvipdfmx">
     <get src="${src_dvipdfmx}" dest="${dst_dvipdfmx}" usetimestamp="true"/>
-    <exec dir="${src}" exetutable="tar">
+    <exec dir="${src}" executable="tar">
       <arg line="zxf ${dvipdfmx}"/>
+    </exec>
+    <exec dir="${src}/${dvipdfmx_prefix}" executable="./configure">
+    </exec>
+    <exec dir="${src}/${dvipdfmx_prefix}" executable="make">
     </exec>
   </target>
 
