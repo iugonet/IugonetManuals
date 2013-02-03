@@ -28,8 +28,16 @@
       <arg line="0"/>
     </exec>
     <exec executable="yum">
-      <arg line="-y install gcc gcc-c++ bison expat-devel libicu-devel rpm-build httpd ruby ruby-devel rubygems libxml2-devel libxslt-devel wireshark wireshark-devel wireshark-gnome"/>
+      <arg line="-y install tetex*"/>
     </exec>
+  </target>
+
+  <target name="initial_message">
+    <echo message="###&#x0A;###&#x0A;This installation process takes 15 minutes at least.&#x0A;###&#x0A;###&#x0A;"/>
+  </target>
+
+  <target name="final_message">
+    <echo message="###&#x0A;###&#x0A;tetex blablabla.tex&#x0A;&#x0A; and&#x0A;&#x0A;&#x0A;###&#x0A;###&#x0A;"/>
   </target>
 
 </project>
