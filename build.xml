@@ -41,6 +41,9 @@
     </exec>
     <exec dir="${src}/${dvipdfmx_prefix}" executable="make">
     </exec>
+    <exec dir="${src}/${dvipdfmx_prefix}" executable="make">
+      <arg value="install"/>
+    </exec>
   </target>
 
   <target name="initial_message">
