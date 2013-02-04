@@ -32,6 +32,19 @@
     </exec>
   </target>
 
+  <target name="texlive" description="Install TeX Live">
+    <get src="${src_texlive}" dest="${dst_texlive}" usetimestamp="true"/>
+    <exec dir="${src}" executable="tar">
+      <arg line="zxf ${texlive}"/>
+    </exec>
+    <exec executable="bash" outputproperty="texlive_dir">
+      <arg value="-c"/>
+      <arg value="ls ${src} | grep -v gz"/>
+    </exec>
+    <exec executable="./install-tl" dir="${src}/${texlive_dir}">
+    </exec>
+  </target>
+
   <target name="dvipdfmx" description="Install dvipdfmx">
     <get src="${src_dvipdfmx}" dest="${dst_dvipdfmx}" usetimestamp="true"/>
     <exec dir="${src}" executable="tar">
