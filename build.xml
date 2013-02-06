@@ -42,7 +42,9 @@
       <arg value="-c"/>
       <arg value="echo 'I' > ${src}/${texlive_dir}/actions.txt"/>
     </exec>
-    <exec executable="./install-tl" dir="${src}/${texlive_dir}">
+    <exec executable="bash" dir="${src}/${texlive_dir}">
+      <arg value="-c"/>
+      <arg value="./install-tl &lt; ${src}/${texlive_dir}/actions.txt"/>
     </exec>
   </target>
 
