@@ -9,7 +9,7 @@
     </classpath>
   </taskdef>
 
-  <target name="all" depends="initial_message, clean, init, dvipdfmx, final_message" description="All"/>
+  <target name="all" depends="initial_message, clean, init, texlive, final_message" description="All"/>
 
   <target name="clean" description="clean">
     <delete dir="${src}"/>
@@ -27,9 +27,6 @@
     <exec executable="setenforce">
       <arg line="0"/>
     </exec>
-    <exec executable="yum">
-      <arg line="-y install tetex* gcc kpathsea-devel"/>
-    </exec>
   </target>
 
   <target name="texlive" description="Install TeX Live">
@@ -41,10 +38,15 @@
       <arg value="-c"/>
       <arg value="ls ${src} | grep -v gz"/>
     </exec>
+    <exec executable="bash">
+      <arg value="-c"/>
+      <arg value="echo 'I' > ${src}/${texlive_dir}/actions.txt"/>
+    </exec>
     <exec executable="./install-tl" dir="${src}/${texlive_dir}">
     </exec>
   </target>
 
+<!--
   <target name="dvipdfmx" description="Install dvipdfmx">
     <get src="${src_dvipdfmx}" dest="${dst_dvipdfmx}" usetimestamp="true"/>
     <exec dir="${src}" executable="tar">
@@ -58,6 +60,7 @@
       <arg value="install"/>
     </exec>
   </target>
+-->
 
   <target name="initial_message">
     <echo message="###&#x0A;###&#x0A;This installation process takes 15 minutes at least.&#x0A;###&#x0A;###&#x0A;"/>
