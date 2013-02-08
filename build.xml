@@ -51,28 +51,12 @@
     <echo file="/etc/profile" message="export PATH=${PATH}:/usr/local/texlive/2012/bin/i386-linux"/>
   </target>
 
-<!--
-  <target name="dvipdfmx" description="Install dvipdfmx">
-    <get src="${src_dvipdfmx}" dest="${dst_dvipdfmx}" usetimestamp="true"/>
-    <exec dir="${src}" executable="tar">
-      <arg line="zxf ${dvipdfmx}"/>
-    </exec>
-    <exec dir="${src}/${dvipdfmx_prefix}" executable="./configure">
-    </exec>
-    <exec dir="${src}/${dvipdfmx_prefix}" executable="make">
-    </exec>
-    <exec dir="${src}/${dvipdfmx_prefix}" executable="make">
-      <arg value="install"/>
-    </exec>
-  </target>
--->
-
   <target name="initial_message">
-    <echo message="###&#x0A;###&#x0A;This installation process takes 15 minutes at least.&#x0A;###&#x0A;###&#x0A;"/>
+    <echo message="###&#x0A;###&#x0A;This installation process takes 80 minutes at least.&#x0A;###&#x0A;###&#x0A;"/>
   </target>
 
   <target name="final_message">
-    <echo message="###&#x0A;###&#x0A;tetex blablabla.tex&#x0A;&#x0A; and&#x0A;&#x0A;&#x0A;###&#x0A;###&#x0A;"/>
+    <echo message="###&#x0A;###&#x0A;platex blablabla.tex&#x0A;dvipdfmx blablabla&#x0A;###&#x0A;###&#x0A;"/>
   </target>
 
 </project>
