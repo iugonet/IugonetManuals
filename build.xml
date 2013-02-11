@@ -59,4 +59,10 @@
     <echo message="###&#x0A;###&#x0A;platex blablabla.tex&#x0A;dvipdfmx blablabla&#x0A;###&#x0A;###&#x0A;"/>
   </target>
 
+  <target name="udas_manual">
+    <exec executable="platex" dir="udas_manual">
+      <arg value="test.tex"/>
+    </exec>
+  </target>
+
 </project>
