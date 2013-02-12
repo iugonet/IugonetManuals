@@ -72,4 +72,17 @@
     <echo message="### evince udas_manual.pdf "/>
   </target>
 
+  <target name="metadata_manual">
+    <exec executable="platex" dir="metadata_manual"> <!-- 1st -->
+      <arg value="metadata_manual.tex"/>
+    </exec>
+    <exec executable="platex" dir="metadata_manual"> <!-- 2nd -->
+      <arg value="metadata_manual.tex"/>
+    </exec>
+    <exec executable="dvipdfmx" dir="metadata_manual">
+      <arg value="metadata_manual.dvi"/>
+    </exec>
+    <echo message="### evince metadata_manual.pdf "/>
+  </target>
+
 </project>
