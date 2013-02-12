@@ -1,19 +1,19 @@
-\chapter{���^�f�[�^�ҏW}
-IUGONET�v���W�F�N�g�ł́AIUGONET���ʃ��^�f�[�^�t�H�[�}�b�g�ɑ��������^�f�[�^���~���ɍ쐬���邽�߂̃c�[��
-�A���Ȃ킿{\bf IUGONET���^�f�[�^�E�G�f�B�^�[}��񋟂��Ă��܂��B����́A�t���[�\�t�g�ł���Eclipse���x�[�X�Ƃ��A
-IUGONET���^�f�[�^���ʃ��^�f�[�^�ׂ̈�XML Schema�AXML�`���̃T���v��
-�E���^�f�[�^���p�b�P�[�W�������c�[���ł��B���̃c�[�����g�����Ƃɂ��A
-�ʏ�̃e�L�X�g�G�f�B�^�[��p�����ҏW���A�葁���m���Ƀ��^�f�[�^��
-�쐬���邱�Ƃ��o���܂��B
+\chapter{メタデータ編集}
+IUGONETプロジェクトでは、IUGONET共通メタデータフォーマットに則ったメタデータを円滑に作成するためのツール
+、すなわち{\bf IUGONETメタデータ・エディター}を提供しています。これは、フリーソフトであるEclipseをベースとし、
+IUGONETメタデータ共通メタデータの為のXML Schema、XML形式のサンプル
+・メタデータをパッケージ化したツールです。このツールを使うことにより、
+通常のテキストエディターを用いた編集より、手早く確実にメタデータを
+作成することが出来ます。
 
-\section{IUGONET���^�f�[�^�E�G�f�B�^�[�̃_�E�����[�h}
-���߂ɁA
+\section{IUGONETメタデータ・エディターのダウンロード}
+初めに、
 \begin{screen}
 \begin{verbatim}
 http://www.iugonet.org/iugonetmetadataeditor.html
 \end{verbatim}
 \end{screen}
-����APC���ɍ��킹�āA
+から、PC環境に合わせて、
 \begin{screen}
 \begin{itemize}
 \item iugonet-metadata-eidtor-win32.zip
@@ -21,38 +21,38 @@ http://www.iugonet.org/iugonetmetadataeditor.html
 \item iugonet-metadata-editor-linux32.zip
 \end{itemize}
 \end{screen}
-�̂����ꂩ���_�E�����[�h���Azip�t�@�C����W�J���Ă��������B
+のいずれかをダウンロードし、zipファイルを展開してください。
 
-\section{IUGONET���^�f�[�^�E�G�f�B�^�[�̋N��}
-�W�J����zip�t�@�C���̒�����A
+\section{IUGONETメタデータ・エディターの起動}
+展開したzipファイルの中から、
 \begin{screen}
 \begin{verbatim}
 iugonet
 \end{verbatim}
 \end{screen}
-�����s����ƁA�}\ref{IugonetMetadataEditor1}�̒ʂ��
-IUGONET���^�f�[�^�E�G�f�B�^�[���N�����܂��B
+を実行すると、図\ref{IugonetMetadataEditor1}の通りに
+IUGONETメタデータ・エディターが起動します。
 
 \begin{figure}[H]
 \begin{center}
 \fbox{
 \includegraphics[width=12cm]{images/IugonetMetadataEditor1.eps}
 }
-\caption{IUGONET���^�f�[�^�E�G�f�B�^�[�N����ʁB}
+\caption{IUGONETメタデータ・エディター起動画面。}
 \label{IugonetMetadataEditor1}
 \end{center}
 \end{figure}
 
-\subsection{���^�f�[�^�E�t�@�C���̕ҏW}
+\subsection{メタデータ・ファイルの編集}
 
-\subsubsection{Person�̕ҏW}
+\subsubsection{Personの編集}
 
 \begin{figure}[H]
 \begin{center}
 \fbox{
 \includegraphics[width=12cm]{images/IugonetMetadataEditor2.eps}
 }
-\caption{Person.xml�ҏW���(Design�^�u�I����)�B}
+\caption{Person.xml編集画面(Designタブ選択時)。}
 \label{IugonetMetadataEditor2}
 \end{center}
 \end{figure}
@@ -62,42 +62,42 @@ IUGONET���^�f�[�^�E�G�f�B�^�[���N�����܂��B
 \fbox{
 \includegraphics[width=12cm]{images/IugonetMetadataEditor3.eps}
 }
-\caption{Person.xml�ҏW���(Source�^�u�I����)�B�}\ref{IugonetMetadataEditor2}��Design�^�u��ŕK�v���ڂ𖄂߂Ă����΁A
-���̗l�Ɏ����I��XML�`���ŋL�q����܂��BSource�^�u��ł�XML�̊m�F�̂ݍs���A���ڕҏW���邱�Ƃ͍T���܂��B}
+\caption{Person.xml編集画面(Sourceタブ選択時)。図\ref{IugonetMetadataEditor2}のDesignタブ上で必要項目を埋めていけば、
+この様に自動的にXML形式で記述されます。Sourceタブ上ではXMLの確認のみ行い、直接編集することは控えます。}
 \label{IugonetMetadataEditor3}
 \end{center}
 \end{figure}
 
 \begin{enumerate}
-\item �ŏ��� Spase �̎q�v�f�Ƃ��� Catalog ���I������Ă���̂ŁACatalog ���ŉE�N
-���b�N����ƁA\colorbox[gray]{0.8}{Replace With}�Ƃ����c�[���o�[���o��̂ŁA���̒�����ҏW�������q�v�f
-(�Ⴆ�� \colorbox[gray]{0.8}{Observatory})��I�����܂�(Space ���ŉE�N���b�N ���āA \colorbox[gray]{0.8}{Add Child} �̒�����
-�K�v�Ȏq�v�f��I�����Ēǉ�������ACatalog ���ŉE�N���b�N����\colorbox[gray]{0.8}{Remove} ��I���A����
-���Ă�����)�B�����ŁA�I���\�Ȏq�v�f�́ASPASE ���f���Ő����E�K�{�Ƃ���Ă��郁�^
-�f�[�^�̃J�e�S���[�ł��B����́ACatalog, DisplayData, Granule, Instrument,
-NumericalData, Observatory, Person, Repository, Service �ȂǂɂȂ�܂��B
-\item �I�v�V�����̗v�f�𑫂��ꍇ�́A�e�v�f���E�N���b�N����\colorbox[gray]{0.8}{Add Child} �̒�����I���A
-�������͍����鍀�ڂ��E�N���b�N���� \colorbox[gray]{0.8}{Add Before} �� \colorbox[gray]{0.8}{Add After}
- �̒�����I�����܂��B
-�����́A�@�ɏ�������̂ŁA��}���Q�Ƃ��Ă��������B
-\item ����v�f�������ꍇ�́A���̗v�f�̗��ŉE�N���b�N���� \colorbox[gray]{0.8}{Remove} ��I�����܂��B
-\item �I�v�V�����̗v�f�𑫂��ꍇ�́A�����鍀�ڂ��E�N���b�N���� \colorbox[gray]{0.8}{Add Before} ��
-\colorbox[gray]{0.8}{Add After} �̒�����I�����܂��B�������́A�e�v�f���E�N���b�N���� \colorbox[gray]{0.8}{Add Child}
- �̒�����I�����܂��B�����́A�@�ɏ�������̂ŁA��}���Q�Ƃ��Ă��������B
-\item NumericalData/Parameter �̕K�{�q�v�f�Ƃ��� Field ���f�t�H���g�őI�΂�Ă�
-�܂����A����͉E�N���b�N����\colorbox[gray]{0.8}{Replace With} �̒�����K���Ȃ���(�Ⴆ�� \colorbox[gray]{0.8}{
-Particle})�ɕ�
-�X�ł��܂��B�����́A�@�ɏ�������̂ŁA��}���Q�Ƃ��Ă��������B
-\item xsi:schemaLocation �̒l�����[�J���ȃX�L�[�}�t�@�C�����w���Ă���ꍇ(�Ⴆ
-�΁A../../iugonet-1\_0\_0.xsd ��) �AGit ���|�W�g���֒�o����O��
-http://www.iugonet.org/data/schema/iugonet.xsd �֕ύX���Ă��������B
-\item IUGONET �J���҂����p���ċC�ɂȂ����Ƃ���[������o���k]
-(����̃��^�f�[�^�t�@�C���̍쐬���̎Q�l�ɂ��Ă��������B)
+\item 最初は Spase の子要素として Catalog が選択されているので、Catalog 欄で右ク
+リックすると、\colorbox[gray]{0.8}{Replace With}というツールバーが出るので、その中から編集したい子要素
+(例えば \colorbox[gray]{0.8}{Observatory})を選択します(Space 欄で右クリック して、 \colorbox[gray]{0.8}{Add Child} の中から
+必要な子要素を選択して追加した後、Catalog 欄で右クリックして\colorbox[gray]{0.8}{Remove} を選択、消去
+しても同じ)。ここで、選択可能な子要素は、SPASE モデルで推奨・必須とされているメタ
+データのカテゴリーです。それは、Catalog, DisplayData, Granule, Instrument,
+NumericalData, Observatory, Person, Repository, Service などになります。
+\item オプションの要素を足す場合は、親要素を右クリックして\colorbox[gray]{0.8}{Add Child} の中から選択、
+もしくは今ある項目を右クリックして \colorbox[gray]{0.8}{Add Before} か \colorbox[gray]{0.8}{Add After}
+ の中から選択します。
+やり方は、①に準拠するので、上図を参照してください。
+\item ある要素を消す場合は、その要素の欄で右クリックして \colorbox[gray]{0.8}{Remove} を選択します。
+\item オプションの要素を足す場合は、今ある項目を右クリックして \colorbox[gray]{0.8}{Add Before} か
+\colorbox[gray]{0.8}{Add After} の中から選択します。もしくは、親要素を右クリックして \colorbox[gray]{0.8}{Add Child}
+ の中から選択します。やり方は、①に準拠するので、上図を参照してください。
+\item NumericalData/Parameter の必須子要素として Field がデフォルトで選ばれてい
+ますが、これは右クリックして\colorbox[gray]{0.8}{Replace With} の中から適当なもの(例えば \colorbox[gray]{0.8}{
+Particle})に変
+更できます。やり方は、①に準拠するので、上図を参照してください。
+\item xsi:schemaLocation の値がローカルなスキーマファイルを指している場合(例え
+ば、../../iugonet-1\_0\_0.xsd 等) 、Git リポジトリへ提出する前に
+http://www.iugonet.org/data/schema/iugonet.xsd へ変更してください。
+\item IUGONET 開発者が利用して気になったところ[いわゆる経験談]
+(今後のメタデータファイルの作成時の参考にしてください。)
 \begin{itemize}
-\item �I�v�V�����̗v�f������ʒu�����܂��Ă���炵���B�Ⴆ�΁AResourceHeader ��Acknowledgement �����悤�Ƃ���ƁADescription �̂Ƃ���� \colorbox[gray]{0.8}{Add After}
- �Ƃ��邩�AContact �̂Ƃ���� \colorbox[gray]{0.8}{Add Before} �Ƃ��Ȃ��ƑI�����Ƃ��ďo�Ă��Ȃ��B(�e�v�f�̗��ŉE�N���b�N���� \colorbox[gray]{0.8}{Add Child} ����I������΂悢�ł�)
-\item ResourceHeader/Contact/Role �Ƃ���ŁA�w�肳�ꂽ�l�̌�₩��I�ԈȊO�ɂ��������߂Ă��܂���... �B(SPASE�A���邢��IUGONET�Ő�������Ă��鍀�ڈȊO�͏����Ȃ��悤�ɂ��Ă��������B�s���ȓ_��IUGONET �̒S���҂܂�)
-\item �v�f���������ĉ�ʂɕ\��������Ȃ��Ȃ����ꍇ�A�X�N���[���o�[�ōŉ����̂ق�������ƁA�v�f���͕\���������̗̂v�f�̒l�͕\������Ȃ��B���N���b�N�œ����Ă���l���킩��B(�� Mac �ł݂̂̌��ۂ炵���ł��B���݂̂Ƃ���Ώ����@�͕s���ł�)
+\item オプションの要素を入れる位置が決まっているらしい。例えば、ResourceHeader でAcknowledgement を入れようとすると、Description のところで \colorbox[gray]{0.8}{Add After}
+ とするか、Contact のところで \colorbox[gray]{0.8}{Add Before} としないと選択肢として出てこない。(親要素の欄で右クリックして \colorbox[gray]{0.8}{Add Child} から選択すればよいです)
+\item ResourceHeader/Contact/Role ところで、指定された値の候補から選ぶ以外にも書き込めてしまうが... 。(SPASE、あるいはIUGONETで推奨されている項目以外は書かないようにしてください。不明な点はIUGONET の担当者まで)
+\item 要素数が増えて画面に表示しきれなくなった場合、スクロールバーで最下部のほうを見ると、要素名は表示されるものの要素の値は表示されない。左クリックで入っている値がわかる。(※ Mac 版のみの現象らしいです。現在のところ対処方法は不明です)
 \end{itemize}
 \end{enumerate}
 
@@ -121,15 +121,15 @@ http://www.iugonet.org/data/schema/iugonet.xsd �֕ύX���Ă��������B
 \end{center}
 \end{figure}
 
-\subsection{�t�H���_(�f�B���N�g��)�̒ǉ�}
+\subsection{フォルダ(ディレクトリ)の追加}
 \begin{enumerate}
-\item �c�[���o�[�� \colorbox[gray]{0.8}{File} (�G�N�X�v���[���[�ŉE�N���b�N�ł��悢) $\rightarrow$ 
+\item ツールバーで \colorbox[gray]{0.8}{File} (エクスプローラーで右クリックでもよい) $\rightarrow$ 
 \colorbox[gray]{0.8}{New} $\rightarrow$ \colorbox[gray]{0.8}{Folder}
-�̏��ɑI������ƁA�_�C�A���O(New Folder)�������オ��܂��B
+の順に選択すると、ダイアログ(New Folder)が立ち上がります。
 \item Folder
 \begin{itemize}
-\item Enter or select the parent folder: �e�ɂȂ�t�H���_��I�����܂�(�������͒��ړ��͂���)�B
-\item Folder name: �V�������t�H���_������͂��܂��B
-\item Finish ���N���b�N����ƁA�G�N�X�v���[���[�ɐV����folder ������܂��B
+\item Enter or select the parent folder: 親になるフォルダを選択します(もしくは直接入力する)。
+\item Folder name: 新しく作るフォルダ名を入力します。
+\item Finish をクリックすると、エクスプローラーに新しいfolder が現れます。
 \end{itemize}
 \end{enumerate}

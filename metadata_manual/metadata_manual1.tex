@@ -1,45 +1,45 @@
-\chapter{IUGONET�v���W�F�N�g�ƃ��^�f�[�^�E�f�[�^�x�[�X}
+\chapter{IUGONETプロジェクトとメタデータ・データベース}
 
-\section{�͂��߂�}
- ���̃h�L�������g�́A���IUGONET�v���W�F�N�g�O�����烁�^�f�[�^��񋟂��Ē����ۂɁA���^�f�[�^�쐬��
-�S�������������ɁA
+\section{はじめに}
+ このドキュメントは、主にIUGONETプロジェクト外部からメタデータを提供して頂く際に、メタデータ作成を
+担当される方向けに、
 \begin{itemize}
-\item ���^�f�[�^�쐬�̎菇�A
-\item ���^�f�[�^�o�^�̕��@�A
+\item メタデータ作成の手順、
+\item メタデータ登録の方法、
 \end{itemize}
-���܂Ƃ߂��h�L�������g�ł��B���^�f�[�^�쐬�E�o�^�̍ۂɁA���̕��͂�
-�ڂ�ʂ��Ē����A����̃t�H�[�}�b�g�ɉ��������^�f�[�^���A�����悭�쐬�E
-�o�^���Ē�����΍K���ł��B
+をまとめたドキュメントです。メタデータ作成・登録の際に、この文章に
+目を通して頂き、所定のフォーマットに沿ったメタデータを、効率よく作成・
+登録して頂ければ幸いです。
 
-\section{IUGONET�v���W�F�N�g}
- �����w��C�����ϓ��̑S���n��l�b�g���[�N�ϑ��E����(IUGONET: Inter-university Upper atmosphere Global Observation NETwork)
-\footnote{http://www.iugonet.org/}�́A����21�N�x���6�N�v��Ƃ��ăX�^�[�g������w�ԘA�g�v���W�F�N�g�ł��B
-���̃v���W�F�N�g�ł́A�����ɒn������(���󌗌����O���[�v)�A���k��w(���w�����Ȓn�������w��U���z�f����ԕ����w�u���A�f���v���Y�}�E��C�����Z���^�[)�A
-���É���w(���z�n����������)�A���s��w(�������������A��w�@���w�����ȕ����n���C���E������̓Z���^�[�A
-��w�@���w�����ȕ����V����)�A����ы�B��w(���ۉF���V�C�Ȋw�E����Z���^�[�A��:����������Z���^�[)
-��5�@��7�g�D���A�g���A�e�X�̌����@�ւ����E�e�n�ɂ����Ď��{���Ă��钴���w��C�̒n��ϑ���L�@�I�Ƀ����N�����邱�Ƃɂ��A
-�S���n��l�b�g���[�N�ϑ��Ԃ��`�����A����𗘗p���������w��C�̒����ϓ��Ɋւ��錤�����s�����Ƃ�ړI�Ƃ��Ă��܂��B\par
+\section{IUGONETプロジェクト}
+ 超高層大気長期変動の全球地上ネットワーク観測・研究(IUGONET: Inter-university Upper atmosphere Global Observation NETwork)
+\footnote{http://www.iugonet.org/}は、平成21年度より6年計画としてスタートした大学間連携プロジェクトです。
+このプロジェクトでは、国立極地研究所(宙空圏研究グループ)、東北大学(理学研究科地球物理学専攻太陽惑星空間物理学講座、惑星プラズマ・大気研究センター)、
+名古屋大学(太陽地球環境研究所)、京都大学(生存圏研究所、大学院理学研究科附属地磁気世界資料解析センター、
+大学院理学研究科附属天文台)、および九州大学(国際宇宙天気科学・教育センター、旧:宙空環境研究センター)
+の5機関7組織が連携し、各々の研究機関が世界各地において実施している超高層大気の地上観測を有機的にリンクさせることにより、
+全球地上ネットワーク観測網を形成し、それを利用した超高層大気の長期変動に関する研究を行うことを目的としています。\par
 
-\section{���^�f�[�^�E�f�[�^�x�[�X}
- IUGONET�Q���e�@�ւɂ����āA�ʂɌ��J����Ă��钴���w��C�̒n��ϑ��Ɋւ���l�X�ȃf�[�^���A�������I�ɗ��ʂ�����ׂɁA
-1. �ϑ��f�[�^���烁�^�f�[�^�𒊏o���A2. �������f�[�^�x�[�X�����邱�Ƃɂ��A
-�l�X�ȕ���̌����ҊԂŊϑ��f�[�^�Ɋւ���������L����V�X�e���A���Ȃ킿���^�f�[�^�E�f�[�^�x�[�X���\�z���Ă��܂�
-(�}\ref{mdb1.eps}, �}\ref{mdb2.eps}, �}\ref{mdb3.eps})�B
-���̃��^�f�[�^�E�f�[�^�x�[�X��IUGONET�Q���@�ւ݂̂Ȃ炸�A�C���^�[�l�b�g��
-�ʂ��Č����҃R�~���j�e�B�S�̂Ɍ��J����Ă��܂�
-\footnote{http://search.iugonet.org/iugonet/}�B
+\section{メタデータ・データベース}
+ IUGONET参加各機関において、個別に公開されている超高層大気の地上観測に関する様々なデータを、より効率的に流通させる為に、
+1. 観測データからメタデータを抽出し、2. それらをデータベース化することにより、
+様々な分野の研究者間で観測データに関する情報を共有するシステム、すなわちメタデータ・データベースを構築しています
+(図\ref{mdb1.eps}, 図\ref{mdb2.eps}, 図\ref{mdb3.eps})。
+このメタデータ・データベースはIUGONET参加機関のみならず、インターネットを
+通して研究者コミュニティ全体に公開されています
+\footnote{http://search.iugonet.org/iugonet/}。
 
 \begin{figure}[H]
 \begin{center}
 \fbox{
 \includegraphics[width=12cm]{images/mdb1.eps}
 }
-\caption{���^�f�[�^�E�f�[�^�x�[�X�̃X�i�b�v�V���b�g�������܂��B
-�t���[���[�h�����A���������A�̈挟�����\�ł��B1�N�G���[�ŁA
-�l�X�Ȋϑ��f�[�^�̃��^�f�[�^�������\�ł��B�f�t�H���g�ݒ�ł́A
-�f�[�^�Z�b�g�݂̂������ΏۂƂ���l�ɁA�`�F�b�N�{�b�N�X���ݒ肳��Ă��܂��B���̃`�F�b�N�{�b�N�X�ɂ��
-�����Ώۂ̐؂�ւ�����g���邱�Ƃɂ��A1�f�[�^�t�@�C���ɕR�Â����A��藱�x�ׂ̍������^
-�f�[�^������A�ϑ������A�v������Ȃǂ��������邱�Ƃ��\�ɂȂ�܂��B}
+\caption{メタデータ・データベースのスナップショットを示します。
+フリーワード検索、時刻検索、領域検索が可能です。1クエリーで、
+様々な観測データのメタデータを検索可能です。デフォルト設定では、
+データセットのみを検索対象とする様に、チェックボックスが設定されています。このチェックボックスによる
+検索対象の切り替えを駆使することにより、1データファイルに紐づいた、より粒度の細かいメタ
+データ検索や、観測所情報、計測器情報などを検索することが可能になります。}
 \label{mdb1.eps}
 \end{center}
 \end{figure}
@@ -49,9 +49,9 @@
 \fbox{
 \includegraphics[width=12cm]{images/mdb2.eps}
 }
-\caption{�t���[���[�h"geomagnetic field"�Ō��������ۂ̌������ʈꗗ��ʂ������܂��B
-�������ʈꗗ����A����ɍi���݂������邱�Ƃ��\�ł��B�������ʈꗗ���烊���N���N���b�N
-���邱�Ƃɂ��A�}\ref{mdb3.eps}�Ɏ������l�ȃ��^�f�[�^�̏ڍׂ��{�����邱�Ƃ��\�ł��B}
+\caption{フリーワード"geomagnetic field"で検索した際の検索結果一覧画面を示します。
+検索結果一覧から、さらに絞込みをかけることが可能です。検索結果一覧からリンクをクリック
+することにより、図\ref{mdb3.eps}に示した様なメタデータの詳細を閲覧することが可能です。}
 \label{mdb2.eps}
 \end{center}
 \end{figure}
@@ -61,24 +61,24 @@
 \fbox{
 \includegraphics[width=12cm]{images/mdb3.eps}
 }
-\caption{���^�f�[�^�̏ڍו\���̗�Ƃ��āAkakioka geomagnetic field 1-second digital data in IAGA-format��
-�ւ��郁�^�f�[�^�������܂��BAccessInformation�ɁA���̃f�[�^�Z�b�g��
-���J���Ă���T�C�g�ւ̃����N�������Ă��܂��B}
+\caption{メタデータの詳細表示の例として、kakioka geomagnetic field 1-second digital data in IAGA-formatに
+関するメタデータを示します。AccessInformationに、このデータセットを
+公開しているサイトへのリンクが張られています。}
 \label{mdb3.eps}
 \end{center}
 \end{figure}
 
-\section{���^�f�[�^}
+\section{メタデータ}
 \begin{itemize}
-\item �o�^�����f�[�^��IUGONET���^�f�[�^DB�ł̌����Ńq�b�g����悤�ɂȂ�A
-\item �f�[�^�̑��݂�m��Ȃ������҂ɁA�f�[�^�̑��݂�m���Ă��炦��A
+\item 登録したデータがIUGONETメタデータDBでの検索でヒットするようになる、
+\item データの存在を知らない研究者に、データの存在を知ってもらえる、
 \end{itemize}
 
-IUGONET�v���W�F�N�g�ł́AIUGONET�Q���@�ֈȊO�̑�w�E�����@�ւ���́A
-���^�f�[�^�񋟂����}���܂��BIUGONET���^�f�[�^�E�f�[�^�x�[�X���A�l�X��
-�����@�ւ���񋟂���郁�^�f�[�^�ɂ���ď[������΁A���ɓo�^���ꂽ
-���^�f�[�^�̕t�����l���オ��\��������܂��B
+IUGONETプロジェクトでは、IUGONET参加機関以外の大学・研究機関からの、
+メタデータ提供を歓迎します。IUGONETメタデータ・データベースが、様々な
+研究機関から提供されるメタデータによって充実すれば、既に登録された
+メタデータの付加価値も上がる可能性があります。
 
-����IUGONET���^�f�[�^�E�f�[�^�x�[�X�ɓo�^����Ă��郁�^�f�[�^�ƁA
-�P�N�G���[�ŉ��f�I�Ɍ��������\�������܂�A�w�ۓI�����ɔ��W����
-�K�v������܂��B
+既にIUGONETメタデータ・データベースに登録されているメタデータと、
+１クエリーで横断的に検索される可能性が高まり、学際的研究に発展する
+必要があります。
