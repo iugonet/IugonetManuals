@@ -1,0 +1,353 @@
+\chapter{メタデータ例}
+本章では、京大地磁気センターのマグネトグラムをスキャンしたTIFF形式の
+2次元プロット画像に関するメタデータを例示します。
+メタデータは、そのリソース・タイプ毎に別々の{\bf XMLファイル}中に
+記述されています。
+各メタデータに割り振られたResourceIDを指し示すことにより、リソース
+・タイプ同士が結び付けられます(図\ref{spaseOntology}参照)。
+
+\begin{itembox}[1]{DisplayData}
+{\tiny
+\begin{alltt}
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Spase xmlns="http://www.iugonet.org/data/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                    xsi:schemaLocation="http://www.iugonet.org/data/schema 
+                    http://www.iugonet.org/data/schema/iugonet.xsd ">
+  
+  <Version>1.0.0</Version>
+
+  {\color{blue}<DisplayData>
+
+  <!-- DisplayDataは、データセット(画像データ群)に関するメタデータです。 -->}
+    <ResourceID>spase://IUGONET/DisplayData/WDC_Kyoto/WDC/AAE/Magnetogram/normal</ResourceID>
+  	
+    <ResourceHeader>
+  		
+      <ResourceName>Normal-Run Magnetogram at AAE</ResourceName>
+  		
+      <ReleaseDate>2011-01-18T00:00:00</ReleaseDate>
+  		
+      <Description>See http://wdc.kugi.kyoto-u.ac.jp/film/magnetoexp.html and 
+                   http://wdc.kugi.kyoto-u.ac.jp/film/telluriexp.html</Description>
+  		
+      <Acknowledgement>If the data are used in publications and presentations, the data suppliers and 
+                       the WDC for Geomagnetism, Kyoto must properly be acknowledged.</Acknowledgement>
+
+      <Contact>
+  			
+        <PersonID>spase://IUGONET/Person/Toshihiko.Iyemori</PersonID>
+  			
+        <Role>GeneralContact</Role>
+  		
+      </Contact>
+  	
+      <Contact>
+  			
+        <PersonID>spase://IUGONET/Person/Masahiko.Takeda</PersonID>
+  			
+        <Role>MetadataContact</Role>
+  		
+      </Contact>
+  		
+      <Contact>
+  			
+        <PersonID>spase://IUGONET/Person/Masahito.Nose</PersonID>
+  			
+        <Role>MetadataContact</Role>
+  		
+      </Contact>
+  	
+    </ResourceHeader>
+  	
+    <AccessInformation>
+  		
+    <RepositoryID>spase://IUGONET/Repository/WDC_Kyoto/WDC</RepositoryID>
+  		
+    <Availability>Online</Availability>
+  		
+    <AccessRights>Open</AccessRights>
+  		
+    <AccessURL>
+  			
+      <Name>Analogue Record Image</Name>
+  			
+      <URL>http://wdc.kugi.kyoto-u.ac.jp/film/index.html</URL>
+  		
+      </AccessURL>
+  		
+      <Format>TIFF</Format>
+  	
+    </AccessInformation>
+  
+    <InstrumentID></InstrumentID>
+  	
+    <MeasurementType>Magnetogram</MeasurementType>
+  	
+    <TemporalDescription>
+  		
+      <TimeSpan>
+  			
+        <StartDate>1958-01-01T00:00:00</StartDate>
+  			
+        <StopDate>1971-05-31T23:59:59</StopDate>
+  			
+  		
+      </TimeSpan>
+  		
+      <Cadence>P1D</Cadence>
+  	
+    </TemporalDescription>
+  	
+    <ObservedRegion>Earth.Surface</ObservedRegion>
+  	
+    <SpatialCoverage>
+		
+      <CoordinateSystem>
+  			
+        <CoordinateSystemName>GEO</CoordinateSystemName>
+		
+      </CoordinateSystem>
+  		
+      <NorthernmostLatitude>9.035</NorthernmostLatitude>
+  		
+      <SouthernmostLatitude>9.035</SouthernmostLatitude>
+  		
+      <EasternmostLongitude>38.766</EasternmostLongitude>
+  		
+      <WesternmostLongitude>38.766</WesternmostLongitude>
+  		
+      <Unit>degree</Unit>
+  	
+    </SpatialCoverage>
+  	
+  	
+    <Parameter>
+  		
+      <Name>Universal Time</Name>
+  		
+      <Description>Time is expressed with year, month, day, hour, and min, each stored in interger 
+                   format. Details of the data record Local time
+		</Description>
+  		
+      <Units>minute</Units>
+  		
+      <Support>
+  			
+        <SupportQuantity>Temporal</SupportQuantity>
+  		
+      </Support>
+  		
+  	
+    </Parameter>
+  	
+    <Parameter>
+  		
+      <Name>height</Name>
+  		
+      <Description>Altitude (above sea level)</Description>
+  		
+      <Units>km</Units>
+  		
+      <Support>
+  			
+        <SupportQuantity>Positional</SupportQuantity>
+  		
+      </Support>
+  		
+  	
+    </Parameter>
+
+  
+  </DisplayData>
+  
+
+</Spase>
+
+\end{alltt}
+}
+\end{itembox}
+
+\newpage
+
+\begin{itembox}[1]{Granule}
+{\scriptsize
+\begin{alltt}
+<?xml version="1.0" encoding="UTF-8"?>
+  
+<Spase xmlns="http://www.iugonet.org/data/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+              xsi:schemaLocation="http://www.iugonet.org/data/schema 
+              http://www.iugonet.org/data/schema/iugonet.xsd ">
+  
+  <Version>1.0.0</Version>
+  
+  {\color{blue}<Granule>
+
+  <!-- Granuleは、DisplayData(or NumericalData)を親に持ち、1つの画像ファイルに対して1つ作成します。 -->}
+    <ResourceID>spase://IUGONET/Granule/WDC_Kyoto/WDC/AAE/Magnetogram/normal/AAE_19580102_normal</ResourceID>
+    
+    <ReleaseDate>2011-03-01T00:00:00</ReleaseDate>
+    
+    <ParentID>spase://IUGONET/DisplayData/WDC_Kyoto/WDC/AAE/Magnetogram/normal</ParentID>
+    
+    <StartDate>1958-01-02T00:00:00</StartDate>
+    
+    <StopDate>1958-01-02T23:59:59</StopDate>
+    
+    <Source>
+      
+      <SourceType>Data</SourceType>
+      
+      <URL>http://wdc.kugi.kyoto-u.ac.jp/film/image/normal/aae/1958/n580102.tif</URL>
+    
+    </Source>
+    
+    <SpatialCoverage>
+      
+      <CoordinateSystem>
+      
+        <CoordinateRepresentation>Spherical</CoordinateRepresentation>
+      
+        <CoordinateSystemName>GEO</CoordinateSystemName>
+      </CoordinateSystem>
+      
+      <NorthernmostLatitude>9.035</NorthernmostLatitude>
+      
+      <SouthernmostLatitude>9.035</SouthernmostLatitude>
+      
+      <EasternmostLongitude>38.766</EasternmostLongitude>
+      
+      <WesternmostLongitude>38.766</WesternmostLongitude>
+      
+      <Unit>degree</Unit>
+    
+    </SpatialCoverage>
+  
+  </Granule>
+
+</Spase>
+
+\end{alltt}
+}
+\end{itembox}
+
+\newpage
+
+\begin{itembox}[1]{Person}
+{\scriptsize
+\begin{alltt}
+<?xml version="1.0" encoding="UTF-8"?>
+<Spase lang="en" xmlns="http://www.iugonet.org/data/schema"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://www.iugonet.org/data/schema
+                 http://www.iugonet.org/data/schema/iugonet-1_0_0.xsd ">
+
+  <Version>1.0.0</Version>
+
+  {\color{green}<Person>
+
+  <!-- Personは、メタデータやデータに関する問い合わせ先に関するメタデータです。 -->}
+    <ResourceID>spase://IUGONET/Person/Toshihiko.Iyemori</ResourceID>
+
+    <ReleaseDate>2011-02-12T12:00:00</ReleaseDate>
+
+    <PersonName>Toshihiko Iyemori</PersonName>
+
+    <OrganizationName>Data Analysis Center for Geomagnetism and Space Magnetism, Graduate School of Science,
+                      Kyoto University / World Data Center (WDC) for Geomagnetism, Kyoto</OrganizationName>
+
+    <Address>Kitashirakawa-Oiwake Cho, Sakyo-ku, Kyoto 606-8502, JAPAN</Address>
+
+    <Email>iyemori@kugi.kyoto-u.ac.jp</Email>
+
+    <PhoneNumber>+81-75-753-3929</PhoneNumber>
+
+    <FaxNumber>+81-75-722-7884</FaxNumber>
+
+    <Note>Director at World Data Center for Geomagnetism, Kyoto.</Note>
+
+  </Person>
+
+</Spase>
+
+\end{alltt}
+}
+\end{itembox}
+
+\newpage
+
+\begin{itembox}[1]{Repository}
+{\scriptsize
+\begin{alltt}
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Spase xmlns="http://www.iugonet.org/data/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+              xsi:schemaLocation="http://www.iugonet.org/data/schema 
+              http://www.iugonet.org/data/schema/iugonet-1_0_0.xsd ">
+  
+  <Version>1.0.0</Version>
+
+  {\color{red}<Repository>   
+  <!-- Repositoryは、データ置き場に関するメタデータです。 -->}
+    <ResourceID>spase://IUGONET/Repository/WDC_Kyoto/WDC</ResourceID>
+  	
+    <ResourceHeader>
+  		
+      <ResourceName>Geomagnetic Data Service, World Data Center for Geomagnetism, Kyoto</ResourceName>
+  		
+      <ReleaseDate>2010-01-29T12:00:00</ReleaseDate>
+  		
+      <Description>World Data Center for Geomagnetism, Kyoto is operated by Data Analysis Center 
+                   for Geomagnetism and Space Magnetism Graduate School of Science, 
+                   Kyoto University.</Description>
+  		
+      <Acknowledgement>The rules for the data use and exchange are defined by the Guide on the World 
+                       Data Center System (ICSU Panel on World Data Centers, 1996). Note that information 
+                       on the appropriate institution(s) is also supplied with the WDC data sets. If the 
+                       data are used in publications and presentations, the data suppliers and the WDC 
+                       for Geomagnetism, Kyoto must properly be acknowledged.
+ Commercial use and
+                       re-distribution of WDC data are, in general, not allowed. Please ask for the 
+                       information of each observatory to the WDC.</Acknowledgement>
+  		
+      <Contact>
+  			
+        <PersonID>spase://IUGONET/Person/Toshihiko.Iyemori</PersonID>
+  			
+        <Role>GeneralContact</Role>
+  		
+      </Contact>
+  		
+      <Contact>
+  			
+        <PersonID>spase://IUGONET/Person/Masahiko.Takeda</PersonID>
+  			
+        <Role>TechnicalContact</Role>
+  		
+      </Contact>
+  		
+      <Contact>
+		
+        <PersonID>spase://IUGONET/Person/Masahito.Nose</PersonID>
+  			
+        <Role>TechnicalContact</Role>
+  		
+      </Contact>
+  	
+    </ResourceHeader>
+  	
+    <AccessURL>
+  		
+      <URL>http://wdc.kugi.kyoto-u.ac.jp/wdc/Sec3.html</URL>
+  	
+    </AccessURL>
+  
+  </Repository>
+  
+
+</Spase>
+
+\end{alltt}
+}
+\end{itembox}
+

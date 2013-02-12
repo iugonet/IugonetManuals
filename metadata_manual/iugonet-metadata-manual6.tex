@@ -1,0 +1,169 @@
+\chapter{メタデータ作成に関するQ\&A}\label{qa}
+第\ref{qa}章では、メタデータ作成に関するQ\&A集を記載します。
+
+\section{メタデータの分類に関すること}
+
+\newcounter{qq}
+\newcounter{aa}
+\setcounter{qq}{0}
+\setcounter{aa}{0}
+
+\begin{screen}
+\begin{itemize}
+\item[\stepcounter{qq}Q\theqq] NumericalDataとGranuleの違いは何ですか？
+\item[\stepcounter{aa}A\theaa] NumericalDataはデータセットに関するメタデータ、Granuleはデータファイルに関するメタデータです(図\ref{spaseOntology}参照)。NumericalDataは、1データセットに1つのXMLファイル作成します。これに対して、Granuleは、1データファイルに1つのXMLファイルを作成します。
+\end{itemize}
+\end{screen}
+
+\begin{screen}
+\begin{itemize}
+\item[\stepcounter{qq}Q\theqq] NumericalDataを選択するか、もしくはDisplayDataを選択するかの判断基準は何ですか？
+\item[\stepcounter{aa}A\theaa] 最終的にはPIの判断ですが、以下のような判断基準があります。DisplayData: 画像ファイル、紙に印刷されたプロットなど。NumericalData: 数値配列が格納されたファイル、数字が印刷された紙など。(例1）紙に印刷されたプロットをスキャンして画像ファイル
+にしたものはDisplayData。(例2)動画として撮られた映像で、数値配列かされないようなデータはDisplayData
+\end{itemize}
+\end{screen}
+
+\begin{screen}
+\begin{itemize}
+\item[\stepcounter{qq}Q\theqq] イベントリストはどのカテゴリに入りますか？
+\item[\stepcounter{aa}A\theaa] Catalogです。
+\end{itemize}
+\end{screen}
+
+\section{TemporalDescriptionに関すること}
+
+\begin{screen}
+\begin{itemize}
+\item[\stepcounter{qq}Q\theqq] 現在も観測を継続しているデータの、TemporalDescription.TimeSpanの書き方は？
+\item[\stepcounter{aa}A\theaa] データ取得後、約1週間、1ヶ月、半年、年で公開されるものは、RelativeStopDateに、-P7D、-P1M、-P180D、-P1Yと各々記入します。-P7Dは、現在から1週間前という意味です。日付及び時刻の表記に関する詳細は、ISO 8601もしくはJIS X 0301\footnote{JIS X 0301、情報交換のためのデータ要素及び交換形式―日付及び時刻の表記、http://www.jisc.go.jp/app/pager?id=8268}の文章を参照して下さい。
+\end{itemize}
+\end{screen}
+
+\begin{screen}
+\begin{itemize}
+\item[\stepcounter{qq}Q\theqq] ISO 8601(JIS X 0301)における日付及び時刻の具体例は？
+\item[\stepcounter{aa}A\theaa] 例えば、2004-10-23T23:00:12Z です。日付と時刻の間をTで区切り、時刻の最後に世界標準時を意味するZを付加します。IUGONET共通メタデータフォーマットでは、原則として日時は世界標準時で記述します。
+\end{itemize}
+\end{screen}
+
+\begin{screen}
+\begin{itemize}
+\item[\stepcounter{qq}Q\theqq] TemporalDescriptionのCadence、Exposureの違いは？
+\item[\stepcounter{aa}A\theaa] 1回の観測サイクル(duty cycle)がCadence、1観測サイクル中での観測時間の長さがExposureです。例えば、5分毎に露出時間100秒で撮り続けるカメラのデータなら、CadenceがPT5M、ExposureがPT100Sです。
+\end{itemize}
+\end{screen}
+
+\section{Parameterに関すること}
+
+\begin{screen}
+\begin{itemize}
+\item[\stepcounter{qq}Q\theqq] レーダーのDopplerシフトを使って求めた電離圏の対流速度、上下動速度、中性大気の速度場におけるParameterはParticle、Fieldのどっち？
+\item[\stepcounter{aa}A\theaa] まずは、どちらか1つを選択し登録して下さい。最終的には、データのPIの判断になります。
+\end{itemize}
+\end{screen}
+
+\begin{screen}
+\begin{itemize}
+\item[\stepcounter{qq}Q\theqq] イオンゾンデで計測される電離層のvirtual heightにおいて、Parameterは何に属する？
+\item[\stepcounter{aa}A\theaa] Supportを選択し、Support.SupportQuantityをPositionalとします。
+\end{itemize}
+\end{screen}
+
+\begin{screen}
+\begin{itemize}
+\item[\stepcounter{qq}Q\theqq] Parameter.Structure.Elementはどういうデータに使う？
+\item[\stepcounter{aa}A\theaa] ベクトル量の場合に使います。磁場ベクトル、速度ベクトル、衛星のポジション等の場合です。
+\end{itemize}
+\end{screen}
+
+\begin{screen}
+\begin{itemize}
+\item[\stepcounter{qq}Q\theqq] 画像データについて、pixel当たりの解像度等の情報はどこに書く？
+\item[\stepcounter{aa}A\theaa] Parameter.Descriptionに記入して下さい。
+\end{itemize}
+\end{screen}
+
+\begin{screen}
+\begin{itemize}
+\item[\stepcounter{qq}Q\theqq] NumericalDataの中にあるParameterで適切な物理量を示すものが無い場合(例えば、流星痕の数等)はどうしたら良い？
+\item[\stepcounter{aa}A\theaa] Supportとして、SupportQuantity.Otherを選択しておいて下さい。
+\end{itemize}
+\end{screen}
+
+\section{SpatialCoverageに関すること}
+
+\begin{screen}
+\begin{itemize}
+\item[\stepcounter{qq}Q\theqq] SpatialCoverageには、地理座標や地磁気座標などが考えられますが、何を書けば良いですか？
+\item[\stepcounter{aa}A\theaa] まずは、地理座標を登録して下さい。
+\end{itemize}
+\end{screen}
+
+\begin{screen}
+\begin{itemize}
+\item[\stepcounter{qq}Q\theqq] カメラの向き(ポインティング)の情報はどこに記載する？
+\item[\stepcounter{aa}A\theaa] SpatialCoverageに記入して下さい。また、必要であれば、SpatialCoverage.Descriptionに詳細を書いて下さい。
+\end{itemize}
+\end{screen}
+
+\section{アナログデータの取り扱いについて}
+
+\begin{screen}
+\begin{itemize}
+\item[\stepcounter{qq}Q\theqq] 記録形態や記録メディア(紙、フィルム、CD、DVD等）についての情報は、どこに書く？
+\item[\stepcounter{aa}A\theaa] AccessInfo.Descriptionに記入して下さい。
+\end{itemize}
+\end{screen}
+
+\begin{screen}
+\begin{itemize}
+\item[\stepcounter{qq}Q\theqq] DisplayDataについて、紙媒体にプリントされたデータで元となるデジタルデータも無い場合、AccessInfo.Formatに何を書けばいい？
+\item[\stepcounter{aa}A\theaa] 何も記入しないで結構です。電子的にアクセス出来ない媒体(印刷物等)に、テキストではない形式で記録(図、プロット等)されたデータの場合、Formatの為に用意されている単語はどれも当てはまりません。
+\end{itemize}
+\end{screen}
+
+\begin{screen}
+\begin{itemize}
+\item[\stepcounter{qq}Q\theqq] 観測器の計測自体がアナログかデジタルかを記述する必要はある？
+\item[\stepcounter{aa}A\theaa] 必要ありません。
+\end{itemize}
+\end{screen}
+
+\section{その他・全般}
+
+\begin{screen}
+\begin{itemize}
+\item[\stepcounter{qq}Q\theqq] Catalogのメタデータでは、多くのInstrumentIDを書く場合が想定されます。例えば、複数観測点のデータから作成された地磁気急始(SC)リストの場合、参照した地磁気観測点全てを記入する必要がありますか？
+\item[\stepcounter{aa}A\theaa] InstrumentIDには、全ての観測点について記入して下さい。現実には、数百も書くケースは殆ど無いと思われます。
+\end{itemize}
+\end{screen}
+
+\begin{screen}
+\begin{itemize}
+\item[\stepcounter{qq}Q\theqq] InputResourceIDは、具体的に何を書けば良いですか？
+\item[\stepcounter{aa}A\theaa] オリジナルのSPASEドキュメントを参照しても、意味が良く分からないので、この要素は省略して下さい。この要素の値が検索キーになることはないと思われますので、省いても問題ありません。
+\end{itemize}
+\end{screen}
+
+\begin{screen}
+\begin{itemize}
+\item[\stepcounter{qq}Q\theqq] データに関する問い合わせ先が研究者個人ではなくプロジェクトオフィスやグループの場合は、ResourceHeader$\>$Contactはどう記入すれば良いですか？
+\item[\stepcounter{aa}A\theaa] 原則として、オフィスはグループの代表者のPersonID(つまり特定個人)を書きます。ResourceHeader$\>$Contact$\>$Roleを"General Contact"にしておけば良いでしょう。
+\end{itemize}
+\end{screen}
+
+\begin{screen}
+\begin{itemize}
+\item[\stepcounter{qq}Q\theqq] ResourceIDの階層構造は、どのように記述すれば良いですか？
+\item[\stepcounter{aa}A\theaa] IUGONETでは、ResourceIDの作り方についてローカルルールがあります。例えば、NumericalDataの場合、"spase://IUGONET/NumericalData/研究機関名/観測プロジェクト名観測所名/観測装置名/データセット名"です。観測プロジェクト名が特に無い場合は、miscとしています。
+\end{itemize}
+\end{screen}
+
+\begin{screen}
+\begin{itemize}
+\item[\stepcounter{qq}Q\theqq] Instrumentの中にあるInvestigationNameという要素は何ですか？
+\item[\stepcounter{aa}A\theaa] その観測装置による観測プロジェクト名、観測ネットワーク名、衛星観測の観測装置の場合の人口衛星名等が記載されます。例として、"SuperDARN"、"THEMIS"、"the MEASURE magnetometer array"などが挙げられます。VxO\index{VxO@VxO}では、観測器名
++プロジェクト・衛星名とういう記述(e.g., "Electro-Static Analyzer on FAST")もあるようです。もし、複数のプロジェクト名、観測ネットワークに属している場合は、それらをカンマ(,)やセミコロン(:)で区切って並べて書いて下さい。DSpaceに登録する
+際の必須要素ですので、空欄にしないようにして下さい。該当するプロジェクト・ネットワーク名が無い場合は、例えば"RISH magnetometer"のように研究機関+機器名・観測名、のような文字列を入れておいて下さい。InvestigationName\index{InvestigationName@InvestigationName}は複数書くことも出来ます。{\scriptsize $\<$InvestigationName$\>$Name1$\<$/InverstigationName$\>$$\<$InvestigationName$\>$Name2$\<$/InverstigationName$\>$}のように並列に書いて下さい。特定のプロジェクトに属さずに、各研究機関の定常観測として行っている観測の場合、そのことを明示する為に、"RISH magnetometer (steady observation)"の様に書くことも可能です。この辺りは、各機関の裁量次第です。
+\end{itemize}
+\end{screen}

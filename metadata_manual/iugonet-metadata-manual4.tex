@@ -1,0 +1,47 @@
+\chapter{作成したメタデータの提出と登録確認の方法}
+ XML形式で記述されたIUGONETメタデータファイルの作成が出来たら、次にそれをメタデータ・データベースに登録
+する為に、担当者またはメタデータ受付サーバーに提出します。この章では、作成したメタデータをどのように提出し、
+確認するのかを説明します。
+
+\section{電子メールによる提出}
+ 初期段階でのメタデータ登録は、電子メールにメタデータを添付することで行います。これは非常に簡単で、メタデータを
+作成したディレクトリ構造を、そのままzip形式にアーカイブして、そのzipファイルをメタデータ登録用メールアドレスに
+へ添付にて送信して下さい。($\_$at$\_$は@と読み替えて下さい。)。その際に、メールの
+タイトルは、{\bf メタデータ登録\_YYYYMMDD\_機関名}とし、本文にはメタデータ作成者の名前と登録内容を簡潔に記載して下さい。
+\par
+ 送られたメタデータは、IUGONETのサーバーにてチェックスクリプトにかけられます。エラーがあった場合、IUGONETからメタデータ
+を送ったメールアドレス宛にエラー内容が記載されたログが送信されます。その内容を参考にエラーの修正を行った後、
+再度アーカイブしてメタデータ登録用メールアドレスへ送りなおして下さい。
+
+\section{Git\index{Git@Git}による提出}
+大量のメタデータを取り扱うようになると、メタデータの効率的な管理がひとつの課題になります。IUGONETでは、メタデータ
+受付サーバー上でのメタデータ登録管理に、分散型バージョン管理システムである{\bf Git\index{Git@Git}}を採用しています。
+Git\index{Git@Git}によるメタデータ登録管理を始めるのは、各データファイルに紐付けされたGranule\index{Granule@Granule}メタデータを
+作成する直前が良いでしょう。本節では、
+Git\index{Git@Git}を使ったIUGONETメタデータ登録について簡単に紹介します。\par
+ 
+\begin{screen}
+\begin{verbatim}
+01 $ git config apply.whitespace warn
+02 $ git config --global user.name "Inuta Neko"
+03 $ git config --global user.email "hogehage@mememe.huhuhu"
+\end{verbatim}
+\end{screen}
+
+\begin{screen}
+\begin{verbatim}
+01 $ git add .
+02 $ git add -u
+03 $ git commit
+04 $ git push
+\end{verbatim}
+\end{screen}
+
+\begin{screen}
+\begin{verbatim}
+01 $ git pull
+\end{verbatim}
+\end{screen}
+
+gitは非常に高機能なソフトウェアで、上記で説明した以外にも沢山の機能を持ちます。
+より効率よく使いたい場合は、書籍やインターネット上のドキュメントを参考にして下さい。

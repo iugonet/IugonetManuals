@@ -1,0 +1,212 @@
+\section{IUGONET共通メタデータフォーマットにおける必須要素リスト}
+メタデータXMLファイルを作成する際は、必須となる要素について、必要な情報を書き込んでいくことになります。
+この{\bf 必須要素}を以下にまとめます。XMLファイルをエディタ等で編集し始める前に、あらかじめこれらの
+情報を調べておいて下さい。そうすれば、スムーズにメタデータXMLファイルを作成することが出来ます。
+\par
+
+以下のリストでのインデントはXML の要素の階層を表します。例えば、
+\begin{screen}
+\begin{verbatim}
+ResourceHeader
+ResourceName
+ReleaseData
+...
+\end{verbatim}
+\end{screen}
+となっている要素群は、実際にXML 内では
+\begin{screen}
+\begin{verbatim}
+<ResourceHeader>
+<ResourceName> ........... </ResourceName>
+<ReleaseDate> ............. </ReleaseDate>
+...
+</ResourceHeader>
+\end{verbatim}
+\end{screen}
+となっています。つまり、上位の要素は単なるタグのみで値は入らず、最下位の要素(こ
+の例ではResource Name とRelease Date)のみに値が入る、ということに注意して下さい。
+また、右側に (+) がついている要素は、複数の要素を並列に書くことが可能です。例え
+ば、Contact という要素群(PersonID とRole という子要素で構成される)は、PI の人、
+General Contact の人、Metadata Contact の人など、複数の人が書かれることがあり、そ
+のため 複数要素を並列に書くことが許されています。
+
+(1 of C) は、この中で適切なものを１つ選ぶという意味。
+
+\begin{table}[ht]
+\begin{center}
+{\scriptsize
+\caption{NumericalData(数値データセットを参照するメタデータ)/DisplayData(プロット、ムービーなど可視化されたデータセットを参照するメタデータ)/Catalog(イベントリスト、カタログを参照するメタデータ)}
+\begin{tabular}{ll}\hline
+\ \ \ Node & Content \\ \hline
+\ \ \,ResourceID & ユニークに振られたURI形式のID\\
+$\bigtriangledown$ResourceHeader & \\
+\ \ \ \ \ \ ResourceName & データセットの名前\\
+\ \ \ \ \ \ ReleaseDate & メタデータ公開日\\
+\ \ \ \ \ \ Description & データセットの簡単な説明\\
+\ \ \ \ \ \ Acknowledgement & データセットを使う際に要求されるacknowledgmentstatement\\
+\ \ \ $\bigtriangledown$Contact (+) & データのPI, General contact, Metadata contact を並記する\\
+\ \ \ \ \ \ \ \ \ PersonID & 人的リソースの名前\\
+\ \ \ \ \ \ \ \ \ Role & 人的リソースの役職\\
+$\bigtriangledown$AccessInformation (+) & \\
+\ \ \ \ \ \ RepositoryID & データが置いてあるデータベースを参照するメタデータのResourceID\\
+\ \ \ \ \ \ Availability & オンラインアクセス可かどうか。”Online”,”Offline”のいずれか\\
+\ \ \ \ \ \ AccessRights & フリーアクセスかどうか。“Open”,”Restricted”のいずれか\\
+\ \ \ $\bigtriangledown$AccessURL (+) &データにアクセスできるWebsite の情報。ほとんど場合RepositoryIDと同一\\
+\ \ \ \ \ \ \ \ \ Name & データサイトの名前\\
+\ \ \ \ \ \ \ \ \ URL & データサイトのURL\\
+\ \ \ \ \ \ \ \ \ Description & データサイトについての簡単な説明\\
+\ \ \ \ \ \ Format & データセットを構成する個々のデータファイルのフォーマット\\
+\ \ \ InstrumentID & このデータを産出する観測装置のResource ID。Catalog では不要\\
+\ \ \ PhenomenonType & Catalog のみ必要。関連する現象を選択肢の中から選ぶ\\
+\ \ \ MeasurementType (+) & 観測量のカテゴリーを移る\\
+$\bigtriangledown$TemporalDescription & データセットの時刻範囲についての情報\\
+\ \ \ $\bigtriangledown$TimeSpan & \\
+\ \ \ \ \ \ \ \ \ StartDate & データ取得開始日時。yyyy-mm-ddThh:mm:ssZ 形式 (世界時)\\
+\ \ \ \ \ \ \ \ \ StopDate & (1 of C) データ取得終了日時\\
+\ \ \ \ \ \ \ \ \ RelativeStopDate & (1 of C) 最新データの日時 (現在進行形でデータが増えている場合)\\ 
+\ \ \ Observed Region & データが対象とする観測領域。選択肢の中から選ぶ\\
+\ \ \ SpatialCoverage & 観測領域の空間範囲。緯度・経度・高度を使って記述する\\
+$\bigtriangledown$CoordinateSystem & \\
+\ \ \ \ \ \ CoordinateSystem Name & 以下に書く緯度経度の座標系の名前\\
+\ \ \ \ \ \ CoordinateRepresentation & 座標系の種類 (e.g., Spherical, Cartesian, ...)\\
+\ \ \ \ \ \ NorthernmostLatitude & 緯度の北限\footnote{緯度範囲を指定しない場合はNorthern/Southern Lat. に同値を書く}\\
+\ \ \ \ \ \ SouthernmostLatitude & 緯度の南限\footnote{緯度範囲を指定しない場合はNorthern/Southern Lat. に同値を書く}\\
+\ \ \ \ \ \ EasternmostLongitude & 経度の東限\footnote{経度範囲を指定しない場合はEastern/Western Lon. に同値を書く}\\
+\ \ \ \ \ \ WesternmostLongitude & 経度の西限\footnote{経度範囲を指定しない場合はEastern/Western Lon. に同値を書く}\\
+\ \ \ \ \ \ Unit & Lat./Lon.の単位を文字列で書く。通常は degree\\
+\ \ \ \ \ \ MinimumAltitude & 高度の下限(km)\footnote{高度範囲を指定しない場合は、Maximum/Minimum Altitudeに同値を書く}\\
+\ \ \ \ \ \ MaximumAltitude & 高度の上限(km)\footnote{高度範囲を指定しない場合は、Maximum/Minimum Altitudeに同値を書く}\\
+\ \ \ \ \ \ Reference & 観測領域を表す名前・略称など。↑で緯度経度を書かない場合は必須\\
+$\bigtriangledown$Parameter(+) & \\
+\ \ \ \ \ \ Name & データセットに入っているデータ量の名前\\
+\ \ \ \ \ \ Description & データ量の簡単な説明\\
+\ \ \ \ \ \ $\bigtriangledown$Field (1 of C) & データ量が電磁場に関係するものの場合\\
+\ \ \ \ \ \ \ \ \ FieldQuantity & 場に関係する物理量のカテゴリー\\
+\ \ \ \ \ \ $\bigtriangledown$Particle & (1 of C) データ量が粒子に関係するものの場合\\
+\ \ \ \ \ \ \ \ \ ParticleType & 粒子種\\
+\ \ \ \ \ \ \ \ \ ParticleQuantity & 粒子に関係する物理量のカテゴリー\\
+\ \ \ \ \ \ $\bigtriangledown$Wave & (1 of C) データ量が波動に関係するものの場合\\
+\ \ \ \ \ \ \ \ \ WaveType & 波動のカテゴリー\\
+\ \ \ \ \ \ \ \ \ WaveQuantity & 波動に関係する物理量のカテゴリー\\
+\ \ \ \ \ \ $\bigtriangledown$Mixed & (1 of C) データ量が場、粒子、波動を組み合わせたものの場合\\
+\ \ \ \ \ \ \ \ \ MixedQuantity & 物理量のカテゴリー\\
+\ \ \ \ \ \ $\bigtriangledown$Support & (1 of C) 上記以外の補助的なデータ量の場合\\
+\ \ \ \ \ \ \ \ \ SupportQuantity & 物理量のカテゴリー\\ \hline
+\end{tabular}
+}
+\end{center}
+\end{table}
+
+\begin{table}[ht]
+\begin{center}
+{\scriptsize
+\caption{Instrument(観測装置、機器を参照するメタデータ)}
+\begin{tabular}{ll}\hline
+\ \ \ Node & Content \\ \hline
+\ \ \,ResourceID & ユニークに振られたURI形式のID\\
+$\bigtriangledown$ResourceHeader & \\
+\ \ \ \ \ \ ResourceName & 観測装置の名前\\
+\ \ \ \ \ \ ReleaseDate & メタデータ公開日\\
+\ \ \ \ \ \ Description & 観測装置の簡単な説明\\
+\ \ \ $\bigtriangledown$Contact(+) & contact person などを書く\\
+\ \ \ \ \ \ \ \ \ PersonID & 人的リソースのResource ID(Person メタデータに対応)\\
+\ \ \ \ \ \ \ \ \ Role & 人的リソースの役職\\
+\ \ \ InstrumentType(+) & 観測装置のカテゴリー\\
+\ \ \ InvestigationName & 観測プロジェクト名、衛星プロジェクト名\\
+\ \ \ ObservatoryID & この装置が設置されている観測サイトのメタデータのResource\\ \hline
+\end{tabular}
+}
+\end{center}
+\end{table}
+
+\begin{table}[ht]
+\begin{center}
+{\scriptsize
+\caption{Observatory(観測サイト、観測衛星などを参照するメタデータ)}
+\begin{tabular}{ll}\hline
+\ \ \ Node & Content \\ \hline
+\ \ \,ResourceID & ユニークに振られたURI形式のID\\
+$\bigtriangledown$ResourceHeader & \\
+\ \ \ \ \ \ ResourceName & 観測サイトの名前\\
+\ \ \ \ \ \ ReleaseDate & メタデータ公開日\\
+\ \ \ \ \ \ Description & 観測サイト、衛星の簡単な説明\\
+\ \ \ $\bigtriangledown$Contact(+) & contact person などを書いておく(PersonID,Role のセットで)\\
+\ \ \ \ \ \ \ \ \ PersonID & 人的リソースのResourceID(Person メタデータに対応)\\
+\ \ \ \ \ \ \ \ \ Role & 人的リソースの役職\\
+\ \ \ $\bigtriangledown$Location\footnote{観測点の位置を緯度経度で指定しにくい場合は、以下はObservatory Region のみでもよい}\\
+\ \ \ \ \ \ \ \ \ Observatory Region(+) & 観測サイトの場所。\\
+\ \ \ \ \ \ \ \ \ CoordinateSystemName & 以下の緯度経度の座標系\\
+\ \ \ \ \ \ \ \ \ Latitude & 観測場所の緯度\\
+\ \ \ \ \ \ \ \ \ Longitude & 観測場所の経度\\ \hline
+\end{tabular}
+}
+\end{center}
+\end{table}
+
+\begin{table}[ht]
+\begin{center}
+{\scriptsize
+\caption{Person(人的リソースのメタデータ)}
+\begin{tabular}{ll}\hline
+\ \ \ Node & Content \\ \hline
+\ \ \,ResourceID & ユニークに振られたURI形式のID\\
+\ \ \ ReleaseDate & メタデータ公開日。\\
+\ \ \ PersonName & 氏名。First Middle Last nameのように書く。\\
+\ \ \ OrganizationName & 研究機関名\\
+\ \ \ Email & 該当する人のメールアドレス\\ \hline
+\end{tabular}
+}
+\end{center}
+\end{table}
+
+\begin{table}[ht]
+\begin{center}
+{\scriptsize
+\caption{Repository(実データのデータベース、データベースサイトを参照するメタデータ)}
+\begin{tabular}{ll}\hline
+\ \ \ Node & Content \\ \hline
+\ \ \ ResourceID & ユニークに振られたURI形式のID\\
+$\bigtriangledown$ResourceHeader & \\
+\ \ \ ResourceName & データベース名\\
+\ \ \ ReleaseDate & メタデータ公開日\\
+\ \ \ Description & データベースの簡単な説明\\
+$\bigtriangledown$Contact(+) & データベースのcontact personを書く\\
+\ \ \ \ \ \ PersonID & PersonメタデータのResourceIDを書く\\
+\ \ \ \ \ \ Role & この人的リソースの役割\\
+$\bigtriangledown$AccessURL & \\
+\ \ \ \ \ \ URL & データベースのURL\\ \hline
+\end{tabular}
+}
+\end{center}
+\end{table}
+
+\begin{table}[ht]
+\begin{center}
+{\scriptsize
+\caption{Granule(個々の実データファイルを参照するメタデータ)}
+\begin{tabular}{ll}\hline
+\ \ \ Node & Content \\ \hline
+\ \ \,ResourceID & ユニークに振られたURI形式のID\\
+\ \ \,ReleaseDate & メタデータ公開日\\
+\ \ \,ParentID & このデータファイルが含まれるデータセットのResource ID\\
+\ \ \,StartDate & データファイル内のデータの開始時刻\\
+\ \ \,StopDate & データファイル内のデータの終了時刻\\
+$\bigtriangledown$Source(+) & \\
+\ \ \ \ \ \ Source Type & データファイルの使われ方。選択肢から適切なものを選ぶ\\
+\ \ \ \ \ \ URL & 非公開データの場合はデータベース、観測プロジェクトのURLを書いておく\\
+$\bigtriangledown$Spatial Coverage & 観測領域の空間範囲。\\
+\ \ \ $\bigtriangledown$CoordinateSystem &\\
+\ \ \ \ \ \ \ \ \ CoordinateSystemName & 以下に書く緯度経度の座標系\\
+\ \ \ \ \ \ \ \ \ CoordinateRepresentation & 座標系の種類 (e.g., Spherical, Cartesian, ...)\\
+\ \ \ \ \ \ NorthernmostLatitude & 緯度の北限\footnote{緯度範囲を指定しない場合はNorthern/Southern Lat. に同値を書く}\\
+\ \ \ \ \ \ SouthernmostLatitude & 緯度の南限\footnote{緯度範囲を指定しない場合はNorthern/Southern Lat. に同値を書く}\\
+\ \ \ \ \ \ EasternmostLongitude & 経度の東限\footnote{経度範囲を指定しない場合はEastern/Western Lon. に同値を書く}\\
+\ \ \ \ \ \ WesternmostLongitude & 経度の西限\footnote{経度範囲を指定しない場合はEastern/Western Lon. に同値を書く}\\
+\ \ \ \ \ \ Unit & Lat. \& Lon. の単位を文字列で書く。通常はdegree\\
+\ \ \ \ \ \ MinimumAltitude & 高度の下限(km)\footnote{高度範囲を指定しない場合は、Maximum/Minimum Altitude に同値を書く}\\
+\ \ \ \ \ \ MaximumAltitude & 高度の上限(km)\footnote{高度範囲を指定しない場合は、Maximum/Minimum Altitude に同値を書く}\\
+\ \ \ \ \ \ Reference & 観測領域を表す名前・略称など。$\uparrow$で緯度経度を書かない場合は必須\\ \hline
+\end{tabular}
+}
+\end{center}
+\end{table}
