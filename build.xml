@@ -56,7 +56,7 @@
   </target>
 
   <target name="final_message">
-    <echo message="###&#x0A;###&#x0A;Please execute&#x0A;&#x0A;ant udas_manual&#x0A;evince udas_manual/udas_manual.pdf&#x0A;###&#x0A;###&#x0A;"/>
+    <echo message="&#x0A;###&#x0A;###&#x0A;&#x0A;If you are installing on the Virtual Machine, I strongly recommend you to take snapshot at this point!&#x0A;&#x0A;Next, please execute these commads&#x0A;&#x0A;ant -logfile udas_manual.log udas_manual&#x0A;evince udas_manual/udas_manual.pdf&#x0A;&#x0A;ant -logfile metadata_manual.log metadata_manual&#x0A;&#x0A;###&#x0A;###&#x0A;"/>
   </target>
 
   <target name="udas_manual">
