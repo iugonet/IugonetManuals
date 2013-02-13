@@ -69,7 +69,7 @@
     <exec executable="dvipdfmx" dir="udas_manual">
       <arg value="udas_manual.dvi"/>
     </exec>
-    <echo message="### evince udas_manual.pdf "/>
+    <echo message="&#x0A;###&#x0A;###&#x0A;&#x0A;Please type&#x0A;&#x0A;evince udas_manual/udas_manual.pdf&#x0A;&#x0A;###&#x0A;###&#x0A;"/>
   </target>
 
   <target name="metadata_manual">
