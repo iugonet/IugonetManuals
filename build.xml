@@ -82,7 +82,7 @@
     <exec executable="dvipdfmx" dir="metadata_manual">
       <arg value="metadata_manual.dvi"/>
     </exec>
-    <echo message="### evince metadata_manual.pdf "/>
+    <echo message="&#x0A;###&#x0A;###&#x0A;&#x0A;Please type&#x0A;&#x0A;evince metadata_manual/metadata_manual.pdf&#x0A;&#x0A;###&#x0A;###&#x0A;"/>
   </target>
 
 </project>
