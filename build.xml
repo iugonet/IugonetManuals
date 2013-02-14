@@ -52,7 +52,7 @@
     <echo file="/etc/profile" message="export PATH=${PATH}:/usr/local/texlive/2012/bin/i386-linux"/>
   </target>
 
-  <target name="initial_message">
+  <target name="initial_message" description="Show initial message.">
     <echo message="###&#x0A;###&#x0A;This installation process takes 80 minutes at least.&#x0A;###&#x0A;###&#x0A;"/>
   </target>
 
@@ -60,7 +60,7 @@
     <echo message="&#x0A;###&#x0A;###&#x0A;&#x0A;If you are installing on the Virtual Machine, I strongly recommend you to take snapshot at this point!&#x0A;&#x0A;Next, please execute these commads&#x0A;&#x0A;ant -logfile udas_manual.log udas_manual&#x0A;evince udas_manual/udas_manual.pdf&#x0A;&#x0A;ant -logfile metadata_manual.log metadata_manual&#x0A;&#x0A;###&#x0A;###&#x0A;"/>
   </target>
 
-  <target name="udas_manual">
+  <target name="udas_manual" description="Create udas manual.">
     <exec executable="platex" dir="udas_manual"> <!-- 1st -->
       <arg value="udas_manual.tex"/>
     </exec>
@@ -73,7 +73,7 @@
     <echo message="&#x0A;###&#x0A;###&#x0A;&#x0A;Please type&#x0A;&#x0A;evince udas_manual/udas_manual.pdf&#x0A;&#x0A;###&#x0A;###&#x0A;"/>
   </target>
 
-  <target name="metadata_manual">
+  <target name="metadata_manual" description="Create metadata manual.">
     <exec executable="platex" dir="metadata_manual"> <!-- 1st -->
       <arg value="metadata_manual.tex"/>
     </exec>
