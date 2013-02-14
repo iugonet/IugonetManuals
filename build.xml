@@ -31,6 +31,7 @@
 
   <target name="texlive" description="Install TeX Live">
     <get src="${src_texlive}" dest="${dst_texlive}" usetimestamp="true"/>
+    <!-- To stay away to use untar task because untar task for ant 1.7.1 is buggy. -->
     <exec dir="${src}" executable="tar">
       <arg line="zxf ${texlive}"/>
     </exec>
