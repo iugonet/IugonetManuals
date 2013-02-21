@@ -9,7 +9,7 @@
     </classpath>
   </taskdef>
 
-  <target name="all" depends="initial_message, clean, init, texlive, final_message" description="All"/>
+  <target name="all" depends="initial_message, clean, init, texlive, final_message" description="Install all"/>
 
   <target name="clean" description="clean">
     <delete dir="${src}"/>
