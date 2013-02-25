@@ -464,7 +464,7 @@ UDASのインストールに先立ち、TDASのインストールが必要です
 
 \begin{screen}
 \begin{verbatim}
- 1 $ echo 'export IDL_PATH=<IDL_DEFAULT>:+/path/to/udas:+/path/to/tdas' 
+ 1 $ echo "export IDL_PATH='<IDL_DEFAULT>:+/path/to/udas:+/path/to/tdas'" 
  2 >> ~/.bashrc
  3 $ source ~/.bashrc
  4 $ idl
@@ -474,6 +474,7 @@ UDASのインストールに先立ち、TDASのインストールが必要です
 \end{screen}
 紙面の都合上、上記の様に記載しましたが、1, 2行目は途中に改行を入れずに連続して入力して下さい。
 1行目において、.bashrcの末尾にIDL\_PATHの設定を追加しています。
+/path/to/udas、/path/to/tdasの部分には、TDAS、UDASをインストールしたパスを入力します。
 2行目において、.bashrcに記述した環境変数IDL\_PATHを反映させます。
 3行目においてIDLを起動します。5行目は、1行目において行ったパスの設定が
 出来ていることをIDL上において確認します。
@@ -612,7 +613,7 @@ curl http://www.iugonet.org/software/udas_package_j/udas_1_00_1.zip
 
 \begin{screen}
 \begin{verbatim}
- 1 $ echo 'export IDL_PATH=<IDL_DEFAULT>:+/path/to/udas:+/path/to/tdas' 
+ 1 $ echo "export IDL_PATH='<IDL_DEFAULT>:+/path/to/udas:+/path/to/tdas'" 
  2 >> ~/.bashrc
  3 $ source ~/.bashrc
  4 $ idl
@@ -622,6 +623,7 @@ curl http://www.iugonet.org/software/udas_package_j/udas_1_00_1.zip
 \end{screen}
 紙面の都合上、上記の様に記載しましたが、1, 2行目は途中に改行を入れずに連続して入力して下さい。
 1行目において、.bashrcの末尾にIDL\_PATHの設定を追加しています。
+/path/to/udas、/path/to/tdasの部分には、TDAS、UDASをインストールしたパスを入力します。
 2行目において、.bashrcに記述した環境変数IDL\_PATHを反映させます。
 3行目においてIDLを起動します。5行目は、1行目において行ったパスの設定が
 出来ていることをIDL上において確認します。\par
@@ -673,7 +675,9 @@ THEMIS Main Windowが開いた後に、\fbox{File}-\fbox{Load Data}
 {\small
 \begin{tabular}{c|c}\hline
 UDASバージョン & 対応するTDASバージョン \\ \hline
-{\color{red}1.00} & {\color{red}v6.00}\\
+{\color{red}2.00.2} & {\color{red}v7.00}\\
+2.00.1 & v7.00\\
+1.00.1 & v6.00\\
 1.00b4 & v6.00\\
 1.00b3 & v6.00\\
 1.00b2 & v6.00\\
