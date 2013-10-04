@@ -47,9 +47,9 @@
       <arg value="-c"/>
       <arg value="./install-tl &lt; ${src}/${texlive_dir}/actions.txt"/>
     </exec>
-    <echo file="/etc/profile" message="export MANPATH=${MANPATH}:/usr/local/texlive/2012/texmf/doc/man"/>
-    <echo file="/etc/profile" message="export INFOPATH=${INFOPATH}:/usr/local/texlive/2012/texmf/doc/info"/>
-    <echo file="/etc/profile" message="export PATH=${PATH}:/usr/local/texlive/2012/bin/i386-linux"/>
+    <echo file="/etc/profile" message="export MANPATH=${MANPATH}:/usr/local/texlive/2013/texmf/doc/man"/>
+    <echo file="/etc/profile" message="export INFOPATH=${INFOPATH}:/usr/local/texlive/2013/texmf/doc/info"/>
+    <echo file="/etc/profile" message="export PATH=${PATH}:/usr/local/texlive/2013/bin/i386-linux"/>
   </target>
 
   <target name="initial_message" description="Show initial message.">
