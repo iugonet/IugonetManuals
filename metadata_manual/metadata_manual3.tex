@@ -133,3 +133,22 @@ http://www.iugonet.org/data/schema/iugonet.xsd へ変更してください。
 \item Finish をクリックすると、エクスプローラーに新しいfolder が現れます。
 \end{itemize}
 \end{enumerate}
+
+\subsection{メタデータの簡易チェック}
+Project Explore でメタデータを右クリックし \colorbox[gray]{0.8}{Validate} を選択することで、メタデータがIUGONETスキーマに適合しているかどうかをチェックすることができます。また、ディレクトリを右クリックして \colorbox[gray]{0.8}{Validate} を選択した場合、ディレクトリ内の全メタデータがチェックされます。エラーがある場合はProblemsタブにエラーが表示される他、Project Explore 上にバツ印がつきます。
+
+\begin{figure}[H]
+\begin{center}
+\fbox{
+\includegraphics[width=12cm]{images/IugonetMetadataEditor4.eps}
+}
+\caption{メタデータの簡易チェック (Problemsタブにエラーメッセージが表示) }
+\label{IugonetMetadataEditor4}
+\end{center}
+\end{figure}
+
+ただしスキーマのバージョンまで厳しくチェックしてしまうため、メタデータの version の値がwebページにおける最新版(ver1.0.4, 2014年11月現在) 以外を指定している場合、エラーになってしまいます。これは xsi:schemaLocation で指定した http://www.iugonet.org/data/schema/iugonet.xsd を参照しているためです。IUGONETでは{\bf ver1.0.3以降を推奨}としているため、ver1.0.3でエラーが出る場合でも問題はなく、無視して構いません。
+
+
+
+
